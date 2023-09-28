@@ -1,9 +1,30 @@
 ///File download from FlutterViz- Drag and drop a tools. For more details visit https://flutterviz.io/
 
+import 'package:eatngo_thesis/screens_loginregister/login_main.dart';
 import 'package:flutter/material.dart';
 
-class splash extends StatelessWidget {
+class splash extends StatefulWidget {
   const splash({super.key});
+
+  @override
+  State<splash> createState() => _splashState();
+}
+
+class _splashState extends State<splash> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Future.delayed(const Duration(seconds: 7), () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          // builder: (context) => FitnessAppHomeScreen(),
+          builder: (context) => const LoginMainPage(),
+        ),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
