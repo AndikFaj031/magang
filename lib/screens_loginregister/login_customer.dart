@@ -187,7 +187,7 @@ class _LoginCustomerPageState extends State<LoginCustomerPage> {
                       height: 30,
                     ),
                     Text(
-                      "Login to CTeen Online",
+                      "Login CTeen Online",
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.white,

@@ -127,19 +127,13 @@ class _LoginMainPageState extends State<LoginMainPage> {
                             transitionDuration: Duration(seconds: 1),
                             closedBuilder: (context, _) =>
                                 AnimatedSecondaryButton(
-                                  ButtonText: 'Register',
+                                  ButtonText: 'Daftar',
                                 ),
                             openBuilder: (context, _) => RegisterMainPage()),
                       ),
                     ],
                   ),
                 ),
-                Image.asset(
-                  "assets/images/tut.png",
-                  width: 80,
-                  height: 120,
-                  alignment: Alignment.centerLeft,
-                )
               ],
             ),
           ),

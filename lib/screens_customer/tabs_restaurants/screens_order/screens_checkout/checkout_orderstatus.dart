@@ -2,8 +2,8 @@
 
 import 'dart:convert';
 
-import 'package:eatngo_thesis/components/texts.dart';
 import 'package:eatngo_thesis/functions/connection.dart';
+import 'package:eatngo_thesis/screens_customer/mainmenu_customer.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
@@ -45,11 +45,9 @@ class _OrderStatusPageState extends State<OrderStatusPage> {
   ];
   Future<bool> _willPopCallback() async {
     int count = 0;
-    if (widget.isFromOrder) {
-      Navigator.of(context).popUntil((_) => count++ >= 6);
-    } else {
-      Navigator.of(context).pop();
-    }
+
+    Navigator.of(context).pop();
+
     // await showDialog or Show add banners or whatever
     // then
     return true; // return true if the route to be popped
@@ -172,54 +170,12 @@ class _OrderStatusPageState extends State<OrderStatusPage> {
       child: Scaffold(
         appBar: AppBar(
           title: Text('Order Status'),
+          automaticallyImplyLeading: false,
         ),
         body: SizedBox(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           child: Column(children: [
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
-              child: Container(
-                  height: 160,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 5),
-                            child: RichTextBoldTail(
-                              bold: transactionData[0]['transactionId'],
-                              nonBold: '',
-                            )),
-                        Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 5),
-                            child: RichTextBoldTail(
-                              bold: transactionData[0]['status'],
-                              nonBold: 'Status = ',
-                            )),
-                        Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 5),
-                            child: RichTextBoldTail(
-                              bold: transactionData[0]['order_date'].toString(),
-                              nonBold: 'Date = ',
-                            )),
-                        Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 5),
-                            child: RichTextBoldTail(
-                              bold: transactionData[0]['queueNumber'],
-                              nonBold: 'Queue Number = ',
-                            )),
-                      ],
-                    ),
-                  )),
-            ),
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 30.0, vertical: 5),
@@ -283,6 +239,16 @@ class _OrderStatusPageState extends State<OrderStatusPage> {
                 ]),
               ),
             ),
+            Expanded(child: Container()),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (builder) =>
+                              MainMenuCustomer(data: widget.userData)));
+                },
+                child: Text('Kembali Home'))
           ]),
         ),
       ),

@@ -3,12 +3,11 @@
 import 'dart:convert';
 
 import 'package:animated_search_bar/animated_search_bar.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:eatngo_thesis/components/cards.dart';
 import 'package:eatngo_thesis/components/texts.dart';
 import 'package:eatngo_thesis/drawers/maindrawer.dart';
 import 'package:eatngo_thesis/functions/connection.dart';
-import 'package:eatngo_thesis/screens_customer/restaurantview_customer.dart';
+import 'package:eatngo_thesis/screens_customer/tabs_restaurants/screens_order/order_dinein.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
@@ -141,63 +140,6 @@ class _MainMenuCustomerState extends State<MainMenuCustomer> {
           children: [
             ListView(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: CarouselSlider(
-                    options: CarouselOptions(
-                      autoPlay: true,
-                      aspectRatio: 2.0,
-                      enlargeCenterPage: true,
-                      enlargeStrategy: CenterPageEnlargeStrategy.height,
-                    ),
-                    items: dataRestoran
-                        .map((item) => Container(
-                              margin: EdgeInsets.all(5.0),
-                              child: ClipRRect(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(5.0)),
-                                  child: Stack(
-                                    children: <Widget>[
-                                      Image.network(
-                                          '$ip/img/restaurant/profile_pict/${item['photo_url']}',
-                                          fit: BoxFit.cover,
-                                          width: 1000.0),
-                                      Positioned(
-                                        bottom: 0.0,
-                                        left: 0.0,
-                                        right: 0.0,
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            gradient: LinearGradient(
-                                              colors: [
-                                                Color.fromARGB(200, 0, 0, 0),
-                                                Color.fromARGB(0, 0, 0, 0)
-                                              ],
-                                              begin: Alignment.bottomCenter,
-                                              end: Alignment.topCenter,
-                                            ),
-                                          ),
-                                          padding: EdgeInsets.symmetric(
-                                              vertical: 10.0, horizontal: 20.0),
-                                          child: Text(
-                                            '${item['name']}',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  )),
-                            ))
-                        .toList(),
-                  ),
-                ),
-                Divider(
-                  height: 5,
-                ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: Padding(
@@ -224,16 +166,8 @@ class _MainMenuCustomerState extends State<MainMenuCustomer> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => RestaurantViewCustomer(
+                            builder: (context) => OrderDineInPage(
                               userData: widget.data,
-                              imgStr: dataRestoranSearch[index]['photo_url'],
-                              restaurantName: dataRestoranSearch[index]['name'],
-                              restaurantAddress: dataRestoranSearch[index]
-                                  ['address'],
-                              restaurantRating: double.parse(
-                                  dataRestoranSearch[index]['rating']),
-                              restaurantDesc: dataRestoranSearch[index]
-                                  ['description'],
                               data: dataRestoranSearch[index],
                             ),
                           ),

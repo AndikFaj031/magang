@@ -27,12 +27,12 @@ class _ViewOrderMainPageState extends State<ViewOrderMainPage> {
               Tab(
                 text: 'Order List',
               ),
-              Tab(
-                text: 'Done',
-              ),
-              Tab(
-                text: 'Cancelled',
-              ),
+              // Tab(
+              //   text: 'Done',
+              // ),
+              // Tab(
+              //   text: 'Cancelled',
+              // ),
             ],
           ),
         ),

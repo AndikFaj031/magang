@@ -28,12 +28,12 @@ class _RegisterMainPageState extends State<RegisterMainPage> {
               padding: EdgeInsets.all(15.0),
               child: RichText(
                 text: TextSpan(
-                  text: "Already have an Account?",
+                  text: "Sudah punya akun?",
                   style: TextStyle(fontSize: 18, color: Colors.black),
                   children: <TextSpan>[
                     TextSpan(
                       style: TextStyle(color: Colors.indigo),
-                      text: ' Click Here!',
+                      text: ' Klik Disini!',
                       recognizer: TapGestureRecognizer()
                         ..onTap = () => Navigator.pushReplacement(
                               context,
@@ -107,7 +107,7 @@ class _RegisterMainPageState extends State<RegisterMainPage> {
                     children: [
                       Padding(
                         padding: EdgeInsets.symmetric(
-                            horizontal: 50.0, vertical: 5.0),
+                            horizontal: 60.0, vertical: 5.0),
                         child: OpenContainer(
                             transitionType: ContainerTransitionType.fadeThrough,
                             closedShape: const RoundedRectangleBorder(
@@ -118,14 +118,14 @@ class _RegisterMainPageState extends State<RegisterMainPage> {
                             transitionDuration: Duration(seconds: 1),
                             closedBuilder: (context, _) =>
                                 AnimatedPrimaryButton(
-                                  ButtonText: 'Register as Customer',
+                                  ButtonText: 'Pelanggan',
                                 ),
                             openBuilder: (context, _) =>
                                 RegisterCustomerpage()),
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(
-                            horizontal: 50.0, vertical: 5.0),
+                            horizontal: 60.0, vertical: 5.0),
                         child: OpenContainer(
                             transitionType: ContainerTransitionType.fadeThrough,
                             closedShape: const RoundedRectangleBorder(
@@ -136,7 +136,7 @@ class _RegisterMainPageState extends State<RegisterMainPage> {
                             transitionDuration: Duration(seconds: 1),
                             closedBuilder: (context, _) =>
                                 AnimatedSecondaryButton(
-                                  ButtonText: 'Register as Restaurant',
+                                  ButtonText: 'Kantin',
                                 ),
                             openBuilder: (context, _) =>
                                 RegisterRestaurantPage()),

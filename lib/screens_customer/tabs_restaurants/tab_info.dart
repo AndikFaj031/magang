@@ -43,7 +43,6 @@ class _InfoTabState extends State<InfoTab> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => OrderMainPage(
-                        restoName: widget.restaurantName,
                         data: widget.data,
                         userData: widget.userData,
                       ),

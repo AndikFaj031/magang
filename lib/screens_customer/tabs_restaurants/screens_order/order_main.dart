@@ -11,14 +11,9 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:maps_toolkit/maps_toolkit.dart' as map_tool;
 
 class OrderMainPage extends StatefulWidget {
-  final String restoName;
   final Map<String, dynamic> data;
   final Map<dynamic, dynamic> userData;
-  const OrderMainPage(
-      {super.key,
-      required this.restoName,
-      required this.data,
-      required this.userData});
+  const OrderMainPage({super.key, required this.data, required this.userData});
 
   @override
   State<OrderMainPage> createState() => _OrderMainPageState();
@@ -127,7 +122,7 @@ class _OrderMainPageState extends State<OrderMainPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.restoName),
+        title: Text(widget.data['name']),
         actions: [
           IconButton(
               onPressed: () async {

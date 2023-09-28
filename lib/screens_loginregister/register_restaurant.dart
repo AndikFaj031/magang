@@ -8,6 +8,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'login_main.dart';
+
 class RegisterRestaurantPage extends StatefulWidget {
   const RegisterRestaurantPage({super.key});
 
@@ -72,7 +74,7 @@ class _RegisterRestaurantPageState extends State<RegisterRestaurantPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Register as Restaurant')),
+      appBar: AppBar(title: Text('Daftar Kantin')),
       resizeToAvoidBottomInset: true,
       bottomNavigationBar: BottomAppBar(
         color: Colors.transparent,
@@ -94,7 +96,7 @@ class _RegisterRestaurantPageState extends State<RegisterRestaurantPage> {
                     if (name.text == '' ||
                         phonenumber.text == '' ||
                         email.text == '' ||
-                        location.text == '' ||
+                        // location.text == '' ||
                         password.text == '' ||
                         respassword.text == '') {
                       Fluttertoast.showToast(
@@ -108,7 +110,7 @@ class _RegisterRestaurantPageState extends State<RegisterRestaurantPage> {
                     }
                   },
                   child: Text(
-                    'Register',
+                    'Daftar',
                     style: TextStyle(fontSize: 18),
                   ),
                 ),
@@ -119,13 +121,20 @@ class _RegisterRestaurantPageState extends State<RegisterRestaurantPage> {
               padding: EdgeInsets.all(15.0),
               child: RichText(
                 text: TextSpan(
-                  text: "Already have an Account?",
+                  text: "Sudah punya akun?",
                   style: TextStyle(fontSize: 18, color: Colors.black),
                   children: <TextSpan>[
                     TextSpan(
-                        style: TextStyle(color: Colors.indigo),
-                        text: ' Click Here!',
-                        recognizer: TapGestureRecognizer()..onTap = () {}),
+                      style: TextStyle(color: Colors.indigo),
+                      text: ' Klik Disini!',
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () => Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LoginMainPage(),
+                              ),
+                            ),
+                    ),
                   ],
                 ),
               )),
@@ -149,7 +158,7 @@ class _RegisterRestaurantPageState extends State<RegisterRestaurantPage> {
                   SizedBox(
                     height: 20,
                   ),
-                  textFieldInput('Restaurant Name', name),
+                  textFieldInput('Kantin Name', name),
                   textFieldInput('Phone Number', phonenumber),
                   textFieldInput('Email', email),
                   Divider(

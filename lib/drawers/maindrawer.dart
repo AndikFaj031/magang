@@ -80,17 +80,17 @@ class MainDrawer extends StatelessWidget {
                                   userData: data,
                                 )));
                   }),
-              buildMenuItem(
-                  text: 'Queue Number',
-                  icon: Icons.numbers,
-                  navigate: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) => DrawerQueuePage(
-                                  userData: data,
-                                )));
-                  }),
+              // buildMenuItem(
+              //     text: 'Queue Number',
+              //     icon: Icons.numbers,
+              //     navigate: () {
+              //       Navigator.push(
+              //           context,
+              //           MaterialPageRoute(
+              //               builder: (BuildContext context) => DrawerQueuePage(
+              //                     userData: data,
+              //                   )));
+              //     }),
               Expanded(
                 child: Align(
                   alignment: Alignment.bottomCenter,

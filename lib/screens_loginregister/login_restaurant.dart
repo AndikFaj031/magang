@@ -3,6 +3,7 @@
 import 'package:eatngo_thesis/components/texts.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginRestaurantPage extends StatefulWidget {
@@ -34,91 +35,92 @@ class _LoginRestaurantPageState extends State<LoginRestaurantPage> {
     }
   }
 
-  // Future login() async {
-  //   setState(() {
-  //     isLoading = true;
-  //   });
-  //   http.Response response;
-  //   var url = Uri.http(ip, '/API_EatNGo/login.php', {'q': '{http}'});
-  //   try {
-  //     response = await http.post(url, body: {
-  //       "email": emailLogin,
-  //       "password": password,
-  //       "role": 'restaurant',
-  //     });
-  //   } catch (e) {
-  //     setState(() {
-  //       isLoading = false;
-  //     });
-  //     Fluttertoast.showToast(
-  //       backgroundColor: Colors.red,
-  //       textColor: Colors.white,
-  //       msg: 'Error!! Check your connection',
-  //       toastLength: Toast.LENGTH_SHORT,
-  //     );
-  //   }
+  Future login() async {
+    setState(() {
+      isLoading = true;
+    });
+    // ignore: unused_local_variable
+    http.Response response;
+    var url = Uri.http('ip', '/API_EatNGo/login.php', {'q': '{http}'});
+    try {
+      response = await http.post(url, body: {
+        "email": emailLogin,
+        "password": password,
+        "role": 'restaurant',
+      });
+    } catch (e) {
+      setState(() {
+        isLoading = false;
+      });
+      Fluttertoast.showToast(
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        msg: 'Error!! Check your connection',
+        toastLength: Toast.LENGTH_SHORT,
+      );
+    }
 
-  //   if (response.statusCode == 200) {
-  //     var data = json.decode(response.body);
-  //     if (data["error"]) {
-  //       setState(() {
-  //         isLoading = false;
-  //         error = true;
-  //         errormsg = data['message'];
-  //         Fluttertoast.showToast(
-  //           msg: errormsg!,
-  //           backgroundColor: Colors.red,
-  //           textColor: Colors.white,
-  //           toastLength: Toast.LENGTH_SHORT,
-  //         );
-  //       });
-  //     } else {
-  //       if (data["success"]) {
-  //         setState(() {
-  //           error = false;
-  //           isLoading = false;
-  //         });
+    // if (response.statusCode == 200) {
+    //   var data = json.decode(response.body);
+    //   if (data["error"]) {
+    //     setState(() {
+    //       isLoading = false;
+    //       error = true;
+    //       errormsg = data['message'];
+    //       Fluttertoast.showToast(
+    //         msg: errormsg!,
+    //         backgroundColor: Colors.red,
+    //         textColor: Colors.white,
+    //         toastLength: Toast.LENGTH_SHORT,
+    //       );
+    //     });
+    //   } else {
+    //     if (data["success"]) {
+    //       setState(() {
+    //         error = false;
+    //         isLoading = false;
+    //       });
 
-  //         Fluttertoast.showToast(
-  //           msg: 'Login Successful',
-  //           backgroundColor: Colors.green,
-  //           textColor: Colors.white,
-  //           toastLength: Toast.LENGTH_SHORT,
-  //         );
-  //         print(dataUser);
-  //         Navigator.pushReplacement(
-  //           context,
-  //           MaterialPageRoute(
-  //             builder: (context) => MainMenuRestaurant(
-  //               userData: data,
-  //             ),
-  //           ),
-  //         );
-  //       } else {
-  //         isLoading = false;
-  //         error = true;
-  //         errormsg = "Something went wrong.";
-  //         Fluttertoast.showToast(
-  //           backgroundColor: Colors.red,
-  //           textColor: Colors.white,
-  //           msg: errormsg!,
-  //           toastLength: Toast.LENGTH_SHORT,
-  //         );
-  //       }
-  //     }
-  //   } else {
-  //     Fluttertoast.showToast(
-  //       backgroundColor: Colors.red,
-  //       textColor: Colors.white,
-  //       msg: 'Error while connecting to server',
-  //       toastLength: Toast.LENGTH_SHORT,
-  //     );
-  //   }
+    //       Fluttertoast.showToast(
+    //         msg: 'Login Successful',
+    //         backgroundColor: Colors.green,
+    //         textColor: Colors.white,
+    //         toastLength: Toast.LENGTH_SHORT,
+    //       );
+    //       print(dataUser);
+    //       Navigator.pushReplacement(
+    //         context,
+    //         MaterialPageRoute(
+    //           builder: (context) => MainMenuRestaurant(
+    //             userData: data,
+    //           ),
+    //         ),
+    //       );
+    //     } else {
+    //       isLoading = false;
+    //       error = true;
+    //       errormsg = "Something went wrong.";
+    //       Fluttertoast.showToast(
+    //         backgroundColor: Colors.red,
+    //         textColor: Colors.white,
+    //         msg: errormsg!,
+    //         toastLength: Toast.LENGTH_SHORT,
+    //       );
+    //     }
+    //   }
+    // } else {
+    //   Fluttertoast.showToast(
+    //     backgroundColor: Colors.red,
+    //     textColor: Colors.white,
+    //     msg: 'Error while connecting to server',
+    //     toastLength: Toast.LENGTH_SHORT,
+    //   );
+    // }
 
-  //   final SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   prefs.setString('usernameRestaurant', emailLogin!);
-  //   prefs.setString('passwordRestaurant', password!);
-  // }
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('usernameRestaurant', emailLogin!);
+    prefs.setString('passwordRestaurant', password!);
+  }
 
   @override
   void initState() {
@@ -176,7 +178,7 @@ class _LoginRestaurantPageState extends State<LoginRestaurantPage> {
                       height: 30,
                     ),
                     Text(
-                      'Login as Restaurant',
+                      'Login Kantin',
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.white,

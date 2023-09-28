@@ -1,9 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:eatngo_thesis/drawers/restaurantDrawer.dart';
 import 'package:eatngo_thesis/functions/connection.dart';
-import 'package:eatngo_thesis/screens_restaurant/screens_booking/booking_main.dart';
 import 'package:eatngo_thesis/screens_restaurant/screens_editmenu/editmenu_category.dart';
 import 'package:eatngo_thesis/screens_restaurant/screens_vieworder/vieworder_main.dart';
 import 'package:flutter/material.dart';
@@ -73,67 +71,67 @@ class _MainMenuRestaurantState extends State<MainMenuRestaurant> {
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
-            Text(
-              'Table Availability',
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            Center(
-              child: SizedBox(
-                width: double.infinity,
-                child: DropdownButtonHideUnderline(
-                  child: DropdownButton2(
-                    hint: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: Text(
-                        'Select Item',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Theme.of(context).hintColor,
-                        ),
-                      ),
-                    ),
-                    items: items
-                        .map((item) => DropdownMenuItem<String>(
-                              value: item,
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 16.0),
-                                child: Text(
-                                  item,
-                                  style: const TextStyle(
-                                    fontSize: 20,
-                                  ),
-                                ),
-                              ),
-                            ))
-                        .toList(),
-                    value: selectedValue,
-                    onChanged: (value) {
-                      setState(() {
-                        selectedValue = value as String;
-                        setTableAvailability();
-                      });
-                    },
-                    buttonStyleData: const ButtonStyleData(
-                        height: 40,
-                        width: 140,
-                        decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 216, 216, 216),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(30)))),
-                    menuItemStyleData: const MenuItemStyleData(
-                      height: 40,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            // Text(
+            //   'Table Availability',
+            //   style: TextStyle(
+            //       color: Colors.black,
+            //       fontSize: 20,
+            //       fontWeight: FontWeight.bold),
+            // ),
+            // SizedBox(
+            //   height: 5,
+            // ),
+            // Center(
+            //   child: SizedBox(
+            //     width: double.infinity,
+            //     child: DropdownButtonHideUnderline(
+            //       child: DropdownButton2(
+            //         hint: Padding(
+            //           padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            //           child: Text(
+            //             'Select Item',
+            //             style: TextStyle(
+            //               fontSize: 20,
+            //               color: Theme.of(context).hintColor,
+            //             ),
+            //           ),
+            //         ),
+            //         items: items
+            //             .map((item) => DropdownMenuItem<String>(
+            //                   value: item,
+            //                   child: Padding(
+            //                     padding: const EdgeInsets.symmetric(
+            //                         horizontal: 16.0),
+            //                     child: Text(
+            //                       item,
+            //                       style: const TextStyle(
+            //                         fontSize: 20,
+            //                       ),
+            //                     ),
+            //                   ),
+            //                 ))
+            //             .toList(),
+            //         value: selectedValue,
+            //         onChanged: (value) {
+            //           setState(() {
+            //             selectedValue = value as String;
+            //             setTableAvailability();
+            //           });
+            //         },
+            //         buttonStyleData: const ButtonStyleData(
+            //             height: 40,
+            //             width: 140,
+            //             decoration: BoxDecoration(
+            //                 color: Color.fromARGB(255, 216, 216, 216),
+            //                 borderRadius:
+            //                     BorderRadius.all(Radius.circular(30)))),
+            //         menuItemStyleData: const MenuItemStyleData(
+            //           height: 40,
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
             SizedBox(
               height: 10,
             ),
@@ -165,15 +163,15 @@ class _MainMenuRestaurantState extends State<MainMenuRestaurant> {
                             )));
               },
             ),
-            RestaurantMenuButton(
-              text: 'View Booking',
-              onpressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => BookingMainPage()));
-              },
-            ),
+            // RestaurantMenuButton(
+            //   text: 'View Booking',
+            //   onpressed: () {
+            //     Navigator.push(
+            //         context,
+            //         MaterialPageRoute(
+            //             builder: (BuildContext context) => BookingMainPage()));
+            //   },
+            // ),
           ],
         ),
       ),
