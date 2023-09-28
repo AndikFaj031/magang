@@ -15,7 +15,7 @@ class _splashState extends State<splash> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(const Duration(seconds: 7), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -37,13 +37,6 @@ class _splashState extends State<splash> {
           alignment: Alignment.topLeft,
           children: [
             ///***If you have exported images you must have to copy those images in assets/images directory.
-            Image(
-              image: const NetworkImage(
-                  "https://media.istockphoto.com/photos/coffee-cup-on-dark-black-background-picture-id1271351203?b=1&k=20&m=1271351203&s=170667a&w=0&h=xhWPJdBkxjl2hE56TXuCPSYyZb8VoXBchVAPq9mGfQs="),
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              fit: BoxFit.cover,
-            ),
             Container(
               margin: const EdgeInsets.all(0),
               padding: const EdgeInsets.all(0),
@@ -69,8 +62,7 @@ class _splashState extends State<splash> {
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                       ),
-                      child: Image.network(
-                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-FaBTOxRzlJnYfKgvUR_Ck6_ZGreFGM8ufnvvq83Jt2UkWfg8QtpeyLM2ti95bAvtWHQ&usqp=CAU",
+                      child: Image.asset("assets/images/cteen.png",
                           fit: BoxFit.cover),
                     ),
                     const Padding(
