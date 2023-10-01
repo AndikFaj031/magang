@@ -1,15 +1,31 @@
 ///File download from FlutterViz- Drag and drop a tools. For more details visit https://flutterviz.io/
 
+import 'package:eatngo_thesis/screens_loginregister/login_main.dart';
 import 'package:flutter/material.dart';
 
-class Splash extends StatefulWidget {
-  const Splash({super.key});
+class splash extends StatefulWidget {
+  const splash({super.key});
 
   @override
-  State<Splash> createState() => _SplashState();
+  State<splash> createState() => _splashState();
 }
 
-class _SplashState extends State<Splash> {
+class _splashState extends State<splash> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Future.delayed(const Duration(seconds: 3), () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          // builder: (context) => FitnessAppHomeScreen(),
+          builder: (context) => const LoginMainPage(),
+        ),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,13 +37,6 @@ class _SplashState extends State<Splash> {
           alignment: Alignment.topLeft,
           children: [
             ///***If you have exported images you must have to copy those images in assets/images directory.
-            Image(
-              image: const NetworkImage(
-                  "https://media.istockphoto.com/photos/coffee-cup-on-dark-black-background-picture-id1271351203?b=1&k=20&m=1271351203&s=170667a&w=0&h=xhWPJdBkxjl2hE56TXuCPSYyZb8VoXBchVAPq9mGfQs="),
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              fit: BoxFit.cover,
-            ),
             Container(
               margin: const EdgeInsets.all(0),
               padding: const EdgeInsets.all(0),
@@ -53,8 +62,7 @@ class _SplashState extends State<Splash> {
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                       ),
-                      child: Image.network(
-                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-FaBTOxRzlJnYfKgvUR_Ck6_ZGreFGM8ufnvvq83Jt2UkWfg8QtpeyLM2ti95bAvtWHQ&usqp=CAU",
+                      child: Image.asset("assets/images/cteen.png",
                           fit: BoxFit.cover),
                     ),
                     const Padding(

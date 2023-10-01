@@ -85,19 +85,7 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
-    - assets/images/logo.png
-    - assets/images/logo-no-background.png
-    - assets/images/bg-main.jpg
-    - assets/images/bg-alt.jpg
-    - assets/images/btn-dine-in.jpg
-    - assets/images/btn-takeaway.jpg
-    - assets/images/default-ava.jpg
-    - assets/images/btn-book.jpg
-    - assets/images/whatsapp_logo.png
-    - assets/images/logos.png
-    - assets/images/b.jpg
-    - assets/images/ten.png
-
+    - assets/images/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
