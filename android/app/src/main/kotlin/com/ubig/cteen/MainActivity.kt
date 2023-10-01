@@ -1,4 +1,4 @@
-package com.example.eatngo_thesis
+package com.ubig.cteen
 
 import io.flutter.embedding.android.FlutterActivity
 

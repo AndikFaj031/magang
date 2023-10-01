@@ -46,10 +46,6 @@ class _RestaurantViewCustomerState extends State<RestaurantViewCustomer> {
                 icon: Icon(Icons.menu_book),
                 text: 'Menu',
               ),
-              Tab(
-                icon: Icon(Icons.location_on),
-                text: 'Location',
-              ),
             ],
           ),
         ),

@@ -4,6 +4,7 @@ import 'package:animations/animations.dart';
 import 'package:eatngo_thesis/components/buttons.dart';
 import 'package:eatngo_thesis/screens_loginregister/login_customer.dart';
 import 'package:eatngo_thesis/screens_loginregister/register_main.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class LoginMainPage extends StatefulWidget {
@@ -25,14 +26,6 @@ class _LoginMainPageState extends State<LoginMainPage> {
       ),
       body: Stack(
         children: [
-          /*
-          Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/bg-alt.jpg'),
-                      fit: BoxFit.fill))),*/
           Container(
             height: 400,
             width: double.infinity,
@@ -52,23 +45,17 @@ class _LoginMainPageState extends State<LoginMainPage> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 160,
+                  height: 120,
                 ),
-                CircleAvatar(
-                  radius: 75,
-                  child: CircleAvatar(
-                    backgroundColor: Color.fromARGB(0, 50, 17, 17),
-                    radius: 90,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(60.0),
-                      child: Image.asset("assets/images/cteen.png"),
-                    ),
-                  ),
+                Image.asset(
+                  "assets/images/logos.png",
+                  width: 150,
+                  height: 100,
                 ),
                 Text(
-                  "Aplikasi CTeen Online",
+                  "CTeeN",
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 30,
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 2,
@@ -82,17 +69,16 @@ class _LoginMainPageState extends State<LoginMainPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 25,
+                  height: 100,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 20.0,
+                    horizontal: 80.0,
                   ),
                   child: Column(
                     children: [
                       Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 90.0, vertical: 10.0),
+                        padding: EdgeInsets.symmetric(horizontal: 30.0),
                         child: OpenContainer(
                             transitionType: ContainerTransitionType.fadeThrough,
                             closedShape: const RoundedRectangleBorder(
@@ -111,29 +97,26 @@ class _LoginMainPageState extends State<LoginMainPage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 90.0, vertical: 10.0),
-                        child: OpenContainer(
-                            transitionType: ContainerTransitionType.fadeThrough,
-                            closedShape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(20),
-                              ),
-                            ),
-                            transitionDuration: Duration(seconds: 1),
-                            closedBuilder: (context, _) =>
-                                AnimatedSecondaryButton(
-                                  ButtonText: 'Daftar',
-                                ),
-                            openBuilder: (context, _) => RegisterMainPage()),
+                    padding: EdgeInsets.all(15.0),
+                    child: RichText(
+                      text: TextSpan(
+                        text: "Don't have an account?",
+                        style: TextStyle(fontSize: 16, color: Colors.black),
+                        children: <TextSpan>[
+                          TextSpan(
+                            style: TextStyle(color: Colors.indigo),
+                            text: ' Sign Up',
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () => Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => RegisterMainPage(),
+                                    ),
+                                  ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
+                    )),
               ],
             ),
           ),

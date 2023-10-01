@@ -125,7 +125,7 @@ class _MainMenuCustomerState extends State<MainMenuCustomer> {
               border: InputBorder.none,
             ),
             searchStyle: TextStyle(color: Colors.white),
-            label: "Search Something Here",
+            label: "cari nama kantin",
             labelStyle: TextStyle(fontSize: 17),
             onChanged: (value) {
               setState(() {

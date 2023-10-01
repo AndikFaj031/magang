@@ -97,7 +97,6 @@ class _RegisterCustomerpageState extends State<RegisterCustomerpage> {
                     if (name.text == '' ||
                         phonenumber.text == '' ||
                         email.text == '' ||
-                        // location.text == '' ||
                         password.text == '' ||
                         respassword.text == '') {
                       Fluttertoast.showToast(
@@ -123,7 +122,7 @@ class _RegisterCustomerpageState extends State<RegisterCustomerpage> {
               child: RichText(
                 text: TextSpan(
                   text: "Sudah punya akun?",
-                  style: TextStyle(fontSize: 18, color: Colors.black),
+                  style: TextStyle(fontSize: 17, color: Colors.black),
                   children: <TextSpan>[
                     TextSpan(
                       style: TextStyle(color: Colors.indigo),

@@ -1,14 +1,13 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:eatngo_thesis/functions/connection.dart';
+import 'package:eatngo_thesis/screens_loginregister/login_customer.dart';
 import 'package:eatngo_thesis/screens_loginregister/login_restaurant.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-
-import 'login_main.dart';
 
 class RegisterRestaurantPage extends StatefulWidget {
   const RegisterRestaurantPage({super.key});
@@ -122,7 +121,7 @@ class _RegisterRestaurantPageState extends State<RegisterRestaurantPage> {
               child: RichText(
                 text: TextSpan(
                   text: "Sudah punya akun?",
-                  style: TextStyle(fontSize: 18, color: Colors.black),
+                  style: TextStyle(fontSize: 17, color: Colors.black),
                   children: <TextSpan>[
                     TextSpan(
                       style: TextStyle(color: Colors.indigo),
@@ -131,7 +130,7 @@ class _RegisterRestaurantPageState extends State<RegisterRestaurantPage> {
                         ..onTap = () => Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => LoginMainPage(),
+                                builder: (context) => LoginCustomerPage(),
                               ),
                             ),
                     ),

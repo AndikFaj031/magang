@@ -211,7 +211,7 @@ class MenuCardwithAdd extends StatelessWidget {
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             image: NetworkImage(
-                                '$ip/img/restaurant/menu_pict/$imgStr'),
+                                '$ip/API_EatNGo/restaurant/menu_pict/$imgStr'),
                             fit: BoxFit.fill),
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10.0)),

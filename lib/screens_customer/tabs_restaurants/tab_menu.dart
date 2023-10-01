@@ -94,7 +94,7 @@ class _MenuTabState extends State<MenuTab> {
                           child: Stack(
                             children: <Widget>[
                               Image.network(
-                                  '$ip/img/restaurant/menu_pict/${dataMenu[dataMenu.indexOf(item)]['photo_url']}',
+                                  '$ip/API_EatNGo/restaurant/menu_pict/${dataMenu[dataMenu.indexOf(item)]['photo_url']}',
                                   fit: BoxFit.cover,
                                   width: 1000.0),
                               Positioned(

@@ -159,7 +159,7 @@ class _LoginRestaurantPageState extends State<LoginRestaurantPage> {
                       height: 50,
                     ),
                     Text(
-                      'Welcome',
+                      '',
                       style: TextStyle(
                         fontSize: 28,
                         color: Colors.white,

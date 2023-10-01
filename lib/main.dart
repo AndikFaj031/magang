@@ -1,5 +1,5 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:eatngo_thesis/splash.dart';
+import 'package:eatngo_thesis/screens_loginregister/login_customer.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.indigo,
         fontFamily: 'SFPro',
       ),
-      home: splash(),
+      home: LoginCustomerPage(),
     );
   }
 }

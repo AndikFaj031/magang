@@ -31,15 +31,6 @@ class _OrderMainPageState extends State<OrderMainPage>
     LatLng(37.421921090045295, -122.08390686198118)
   ];
 
-/*
-  List<LatLng> polygonPoints = [
-    LatLng(-7.939301, 112.681721),
-    LatLng(-7.940614, 112.680725),
-    LatLng(-7.939933, 112.679946),
-    LatLng(-7.938813, 112.681187),
-  ];
-  */
-
   @override
   void initState() {
     print(widget.data);
@@ -138,28 +129,7 @@ class _OrderMainPageState extends State<OrderMainPage>
               icon: Icon(Icons.location_on))
         ],
       ),
-      /*bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-            color: Colors.white, border: Border.all(color: Colors.black)),
-        height: 110,
-        width: 200,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Table Reservation',
-                  style: TextStyle(fontSize: 14, color: Colors.black),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                OrderButton(ButtonText: 'BOOK A TABLE', onPressed: () {})
-              ]),
-        ),
-      ),*/
+     
       body: Stack(
         children: [
           SizedBox(

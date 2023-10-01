@@ -1,9 +1,7 @@
 // ignore_for_file: file_names, prefer_const_constructors
 import 'package:eatngo_thesis/functions/connection.dart';
-import 'package:eatngo_thesis/screens_loginregister/login_main.dart';
+import 'package:eatngo_thesis/screens_loginregister/login_customer.dart';
 import 'package:eatngo_thesis/screens_restaurant/drawersmenu_restaurant/drawer_profile_restaurant.dart';
-import 'package:eatngo_thesis/screens_restaurant/drawersmenu_restaurant/drawer_promo_restaurant.dart';
-import 'package:eatngo_thesis/screens_restaurant/drawersmenu_restaurant/drawer_viewrating.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -27,7 +25,7 @@ class RestaurantDrawer extends StatelessWidget {
               ),
               buildHeader(
                 urlImage:
-                    '$ip/img/restaurant/profile_pict/${userData['photo_url']}',
+                    '$ip/API_EatNGo/restaurant/profile_pict/${userData['photo_url']}',
                 name: userData['name'],
                 level: userData['role'],
                 onClicked: () {
@@ -45,26 +43,6 @@ class RestaurantDrawer extends StatelessWidget {
               const SizedBox(
                 height: 24,
               ),
-              buildMenuItem(
-                  text: 'View Rating',
-                  icon: Icons.star,
-                  navigate: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                DrawerViewRatingPage()));
-                  }),
-              buildMenuItem(
-                  text: 'Add Promo',
-                  icon: Icons.discount,
-                  navigate: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                DrawerViewPromoPage()));
-                  }),
               Expanded(
                 child: Align(
                   alignment: Alignment.bottomCenter,
@@ -83,7 +61,7 @@ class RestaurantDrawer extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                                 builder: (BuildContext context) =>
-                                    LoginMainPage()));
+                                    LoginCustomerPage()));
                       }),
                 ),
               )
@@ -99,8 +77,8 @@ class RestaurantDrawer extends StatelessWidget {
     required IconData icon,
     required VoidCallback navigate,
   }) {
-    final color = Colors.white;
-    final hoverColor = Colors.white70;
+    const color = Colors.white;
+    const hoverColor = Colors.white70;
 
     return ListTile(
       leading: Icon(

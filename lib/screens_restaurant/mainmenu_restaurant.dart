@@ -2,7 +2,6 @@
 
 import 'package:eatngo_thesis/drawers/restaurantDrawer.dart';
 import 'package:eatngo_thesis/functions/connection.dart';
-import 'package:eatngo_thesis/screens_restaurant/screens_editmenu/editmenu_category.dart';
 import 'package:eatngo_thesis/screens_restaurant/screens_vieworder/vieworder_main.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -132,26 +131,26 @@ class _MainMenuRestaurantState extends State<MainMenuRestaurant> {
             //     ),
             //   ),
             // ),
-            SizedBox(
-              height: 10,
-            ),
-            Divider(
-              height: 5,
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            RestaurantMenuButton(
-              text: 'Edit Restaurant Menu',
-              onpressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => EditMenuCategoryPage(
-                              userData: widget.userData,
-                            )));
-              },
-            ),
+            // SizedBox(
+            //   height: 10,
+            // ),
+            // Divider(
+            //   height: 5,
+            // ),
+            // SizedBox(
+            //   height: 10,
+            // ),
+            // RestaurantMenuButton(
+            //   text: 'Edit Restaurant Menu',
+            //   onpressed: () {
+            //     Navigator.push(
+            //         context,
+            //         MaterialPageRoute(
+            //             builder: (BuildContext context) => EditMenuCategoryPage(
+            //                   userData: widget.userData,
+            //                 )));
+            //   },
+            // ),
             RestaurantMenuButton(
               text: 'View Order',
               onpressed: () {

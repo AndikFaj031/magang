@@ -2,7 +2,7 @@
 
 import 'package:animations/animations.dart';
 import 'package:eatngo_thesis/components/buttons.dart';
-import 'package:eatngo_thesis/screens_loginregister/login_main.dart';
+import 'package:eatngo_thesis/screens_loginregister/login_customer.dart';
 import 'package:eatngo_thesis/screens_loginregister/register_customer.dart';
 import 'package:eatngo_thesis/screens_loginregister/register_restaurant.dart';
 import 'package:flutter/gestures.dart';
@@ -23,44 +23,19 @@ class _RegisterMainPageState extends State<RegisterMainPage> {
       bottomNavigationBar: BottomAppBar(
         color: Colors.grey[50]!,
         elevation: 0,
-        child: Column(mainAxisSize: MainAxisSize.min, children: [
-          Padding(
-              padding: EdgeInsets.all(15.0),
-              child: RichText(
-                text: TextSpan(
-                  text: "Sudah punya akun?",
-                  style: TextStyle(fontSize: 18, color: Colors.black),
-                  children: <TextSpan>[
-                    TextSpan(
-                      style: TextStyle(color: Colors.indigo),
-                      text: ' Klik Disini!',
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () => Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => LoginMainPage(),
-                              ),
-                            ),
-                    ),
-                  ],
-                ),
-              )),
-        ]),
+        //
       ),
       body: Stack(
         children: [
           Container(
-            height: 400,
-            width: double.infinity,
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Colors.indigo,
-                Colors.grey[50]!,
-              ],
-            )),
+            child: Column(children: [
+              Image.asset(
+                "assets/images/ten.png",
+                width: 420,
+                height: 322,
+                fit: BoxFit.cover,
+              ),
+            ]),
           ),
           SizedBox(
             width: MediaQuery.of(context).size.width,
@@ -68,34 +43,7 @@ class _RegisterMainPageState extends State<RegisterMainPage> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 140,
-                ),
-                CircleAvatar(
-                  radius: 75,
-                  child: CircleAvatar(
-                    backgroundColor: Colors.transparent,
-                    radius: 100,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(50.0),
-                      child: Image.asset("assets/images/cteen.png"),
-                    ),
-                  ),
-                ),
-                Text(
-                  "Aplikasi CTeen Online",
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 2,
-                    shadows: <Shadow>[
-                      Shadow(
-                        offset: Offset(2.0, 2.0),
-                        blurRadius: 3.0,
-                        color: Color.fromARGB(255, 0, 0, 0),
-                      ),
-                    ],
-                  ),
+                  height: 260,
                 ),
                 SizedBox(
                   height: 40,
@@ -107,7 +55,7 @@ class _RegisterMainPageState extends State<RegisterMainPage> {
                     children: [
                       Padding(
                         padding: EdgeInsets.symmetric(
-                            horizontal: 60.0, vertical: 5.0),
+                            horizontal: 40.0, vertical: 5.0),
                         child: OpenContainer(
                             transitionType: ContainerTransitionType.fadeThrough,
                             closedShape: const RoundedRectangleBorder(
@@ -124,8 +72,7 @@ class _RegisterMainPageState extends State<RegisterMainPage> {
                                 RegisterCustomerpage()),
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 60.0, vertical: 5.0),
+                        padding: EdgeInsets.symmetric(horizontal: 40.0),
                         child: OpenContainer(
                             transitionType: ContainerTransitionType.fadeThrough,
                             closedShape: const RoundedRectangleBorder(
@@ -144,6 +91,27 @@ class _RegisterMainPageState extends State<RegisterMainPage> {
                     ],
                   ),
                 ),
+                Padding(
+                    padding: EdgeInsets.all(15.0),
+                    child: RichText(
+                      text: TextSpan(
+                        text: "Sudah punya akun?",
+                        style: TextStyle(fontSize: 16, color: Colors.black),
+                        children: <TextSpan>[
+                          TextSpan(
+                            style: TextStyle(color: Colors.indigo),
+                            text: ' Klik disini',
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () => Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => LoginCustomerPage(),
+                                    ),
+                                  ),
+                          ),
+                        ],
+                      ),
+                    )),
               ],
             ),
           ),

@@ -1,7 +1,5 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
-import 'package:eatngo_thesis/screens_restaurant/screens_vieworder/tabs_vieworder/tab_ordercancelled.dart';
-import 'package:eatngo_thesis/screens_restaurant/screens_vieworder/tabs_vieworder/tab_orderdone.dart';
 import 'package:eatngo_thesis/screens_restaurant/screens_vieworder/tabs_vieworder/tab_orderlist.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +16,7 @@ class _ViewOrderMainPageState extends State<ViewOrderMainPage> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       initialIndex: 0,
-      length: 3,
+      length: 1,
       child: Scaffold(
         appBar: AppBar(
           title: Text('Order'),
@@ -27,20 +25,12 @@ class _ViewOrderMainPageState extends State<ViewOrderMainPage> {
               Tab(
                 text: 'Order List',
               ),
-              // Tab(
-              //   text: 'Done',
-              // ),
-              // Tab(
-              //   text: 'Cancelled',
-              // ),
             ],
           ),
         ),
         body: TabBarView(
           children: <Widget>[
             TabOrderList(userData: widget.userData),
-            TabOrderDone(),
-            TabOrderCancelled()
           ],
         ),
       ),

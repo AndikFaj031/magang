@@ -39,7 +39,7 @@ class RestaurantMainCard extends StatelessWidget {
               decoration: BoxDecoration(
                   image: DecorationImage(
                       image: NetworkImage(
-                          '$ip/img/restaurant/profile_pict/$imgStr'),
+                          '$ip/API_EatNGo/restaurant/profile_pict/$imgStr'),
                       fit: BoxFit.fill),
                   borderRadius: BorderRadius.circular(10.0)),
               width: 120,
@@ -126,7 +126,7 @@ class MenuCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10.0),
                     image: DecorationImage(
                         image: NetworkImage(
-                            '$ip/img/restaurant/menu_pict/$imgStr'),
+                            '$ip/API_EatNGo/restaurant/menu_pict/$imgStr'),
                         fit: BoxFit.fill)),
                 width: 120,
                 height: MediaQuery.of(context).size.height,
@@ -260,8 +260,8 @@ class VoucherCard extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
                 image: DecorationImage(
-                    image:
-                        NetworkImage('$ip/img/restaurant/profile_pict/$imgStr'),
+                    image: NetworkImage(
+                        '$ip/API_EatNGo/restaurant/profile_pict/$imgStr'),
                     fit: BoxFit.fill)),
             width: 120,
             height: MediaQuery.of(context).size.height,
@@ -387,8 +387,8 @@ class HistoryCard extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
                 image: DecorationImage(
-                    image:
-                        NetworkImage('$ip/img/restaurant/profile_pict/$imgStr'),
+                    image: NetworkImage(
+                        '$ip/API_EatNgo/restaurant/profile_pict/$imgStr'),
                     fit: BoxFit.fill)),
             width: 120,
             height: MediaQuery.of(context).size.height,
@@ -471,7 +471,7 @@ class EditMenuCard extends StatelessWidget {
                 decoration: BoxDecoration(
                     image: DecorationImage(
                         image: NetworkImage(
-                            '$ip/img/restaurant/menu_pict/$imgStr'),
+                            '$ip/API_EatNGo/restaurant/menu_pict/$imgStr'),
                         fit: BoxFit.fill),
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10.0)),

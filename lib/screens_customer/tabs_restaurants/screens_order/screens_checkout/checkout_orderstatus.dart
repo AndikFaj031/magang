@@ -44,7 +44,7 @@ class _OrderStatusPageState extends State<OrderStatusPage> {
     }
   ];
   Future<bool> _willPopCallback() async {
-    int count = 0;
+    // int count = 0;
 
     Navigator.of(context).pop();
 
@@ -56,11 +56,10 @@ class _OrderStatusPageState extends State<OrderStatusPage> {
   @override
   void initState() {
     // TODO: implement initState
-    print(jsonEncode(widget.checkOutData));
-    print(widget.userData);
-    if (widget.isFromOrder) {
-      // addTransaction();
-    }
+    print("test ${jsonEncode(widget.checkOutData)}");
+    print("pppp ${widget.userData}");
+
+    addTransaction();
 
     super.initState();
     fmfTotal = MoneyFormatter(amount: widget.totalCost.toDouble());
@@ -97,33 +96,42 @@ class _OrderStatusPageState extends State<OrderStatusPage> {
     }
   }
 
-  // Future addTransaction() async {
-  //   http.Response response;
-  //   var uri = Uri.parse('$ip/API_EatNGo/add_transaction.php');
-  //   try {
-  //     response = await http.post(uri, body: {
-  //       'customerId': widget.userData['customerId'],
-  //       'restaurantId': widget.checkOutData[0]['restaurantId'],
-  //       'orderType': 'dine in',
-  //       'totalCost': widget.totalCost.toString(),
-  //     });
-  //     Fluttertoast.showToast(
-  //       backgroundColor: Colors.green,
-  //       textColor: Colors.white,
-  //       msg: 'Success add transactions',
-  //       toastLength: Toast.LENGTH_SHORT,
-  //     );
-  //     addOrder();
-  //     getTransaction();
-  //   } catch (e) {
-  //     Fluttertoast.showToast(
-  //       backgroundColor: Colors.red,
-  //       textColor: Colors.white,
-  //       msg: e.toString(),
-  //       toastLength: Toast.LENGTH_SHORT,
-  //     );
-  //   }
-  // }
+  Future addTransaction() async {
+    http.Response response;
+    var uri = Uri.parse('$ip/API_EatNGo/add_transaction.php');
+    try {
+      response = await http.post(uri, body: {
+        'customerId': widget.userData['customerId'],
+        'restaurantId': widget.checkOutData[0]['restaurantId'],
+        'orderType': 'dine in',
+        'totalCost': widget.totalCost.toString(),
+      });
+      if (response.statusCode == 200) {
+        Fluttertoast.showToast(
+          backgroundColor: Colors.green,
+          textColor: Colors.white,
+          msg: 'Success add transactions',
+          toastLength: Toast.LENGTH_SHORT,
+        );
+        addOrder();
+        getTransaction();
+      } else {
+        Fluttertoast.showToast(
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          msg: 'Something went wrong',
+          toastLength: Toast.LENGTH_SHORT,
+        );
+      }
+    } catch (e) {
+      Fluttertoast.showToast(
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        msg: e.toString(),
+        toastLength: Toast.LENGTH_SHORT,
+      );
+    }
+  }
 
   Future addOrder() async {
     http.Response response;

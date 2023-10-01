@@ -1,11 +1,8 @@
 // ignore_for_file: file_names, prefer_const_constructors
 import 'package:eatngo_thesis/functions/connection.dart';
-import 'package:eatngo_thesis/screens_customer/drawersmenu_customer/drawer_history.dart';
 import 'package:eatngo_thesis/screens_customer/drawersmenu_customer/drawer_myorder.dart';
 import 'package:eatngo_thesis/screens_customer/drawersmenu_customer/drawer_profile.dart';
-import 'package:eatngo_thesis/screens_customer/drawersmenu_customer/drawer_promo.dart';
-import 'package:eatngo_thesis/screens_customer/drawersmenu_customer/drawer_queue.dart';
-import 'package:eatngo_thesis/screens_loginregister/login_main.dart';
+import 'package:eatngo_thesis/screens_loginregister/login_customer.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -27,7 +24,7 @@ class MainDrawer extends StatelessWidget {
                 height: 40,
               ),
               buildHeader(
-                urlImage: '$ip/img/customer/default-ava.jpg',
+                urlImage: '$ip/API_EatNGo/customer/default-ava.jpg',
                 name: data["name"],
                 level: data["role"],
                 onClicked: () {
@@ -46,30 +43,30 @@ class MainDrawer extends StatelessWidget {
               const SizedBox(
                 height: 24,
               ),
+              // buildMenuItem(
+              //     text: 'History',
+              //     icon: Icons.history,
+              //     navigate: () {
+              //       Navigator.push(
+              //           context,
+              //           MaterialPageRoute(
+              //               builder: (BuildContext context) =>
+              //                   DrawerHistoryPage(
+              //                     userData: data,
+              //                   )));
+              //     }),
+              // buildMenuItem(
+              //     text: 'Promo & Voucher',
+              //     icon: Icons.discount,
+              //     navigate: () {
+              //       Navigator.push(
+              //           context,
+              //           MaterialPageRoute(
+              //               builder: (BuildContext context) =>
+              //                   DrawerPromoPage()));
+              //     }),
               buildMenuItem(
-                  text: 'History',
-                  icon: Icons.history,
-                  navigate: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                DrawerHistoryPage(
-                                  userData: data,
-                                )));
-                  }),
-              buildMenuItem(
-                  text: 'Promo & Voucher',
-                  icon: Icons.discount,
-                  navigate: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                DrawerPromoPage()));
-                  }),
-              buildMenuItem(
-                  text: 'My Order',
+                  text: 'Pesanan saya',
                   icon: Icons.shopping_bag,
                   navigate: () {
                     Navigator.push(
@@ -95,7 +92,7 @@ class MainDrawer extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: buildMenuItem(
-                      text: 'Logout',
+                      text: 'Keluar',
                       icon: Icons.logout,
                       navigate: () async {
                         showDialog(
@@ -103,7 +100,7 @@ class MainDrawer extends StatelessWidget {
                           builder: (BuildContext context) => AlertDialog(
                             title: const Text('Logout'),
                             content: const Text(
-                                'Apakah anda ingin Logout dari aplikasi?'),
+                                'Apakah anda ingin keluar dari aplikasi?'),
                             actions: <Widget>[
                               TextButton(
                                 onPressed: () =>
@@ -116,12 +113,12 @@ class MainDrawer extends StatelessWidget {
                                       await SharedPreferences.getInstance();
                                   await prefs.remove('username');
                                   await prefs.remove('password');
-                                  print('tes');
+                                  // ignore: use_build_context_synchronously
                                   Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
                                           builder: (BuildContext context) =>
-                                              LoginMainPage()));
+                                              LoginCustomerPage()));
                                 },
                                 child: const Text('OK'),
                               ),

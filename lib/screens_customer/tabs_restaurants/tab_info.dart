@@ -61,7 +61,7 @@ class _InfoTabState extends State<InfoTab> {
                 decoration: BoxDecoration(
                     image: DecorationImage(
                         image: NetworkImage(
-                            '$ip/img/restaurant/profile_pict/${widget.imgStr}'),
+                            '$ip/API_EatNGo/restaurant/profile_pict/${widget.imgStr}'),
                         fit: BoxFit.fill),
                     borderRadius: BorderRadius.all(Radius.circular(5))),
               ),
